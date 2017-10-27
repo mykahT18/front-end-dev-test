@@ -18,6 +18,9 @@ gulp.task('views', () => {
       pretty: true
     }))
     .pipe(gulp.dest('./'))
+    .pipe(browserSync.reload({
+      stream:true
+    }))
 })
 gulp.task('browser-sync', () => {
   browserSync.init({
@@ -28,6 +31,7 @@ gulp.task('browser-sync', () => {
 })
 gulp.task('watch', ['browser-sync', 'styles', 'views'], () => {
   gulp.watch('./stylus/*.styl', ['styles'])
+  gulp.watch('./views/*.pug', ['views'])
   gulp.watch("*.html").on("change", reload) 
   // gulp.watch(['./script/src/*.js'], ['babel']).on('change', reload)
 })

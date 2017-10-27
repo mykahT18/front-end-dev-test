@@ -7,7 +7,9 @@
     "test": "mocha --reporter spec --compilers js:babel-register -w"
   },
   "babel": {
-    "presets": ["env"]
+    "presets": [
+      "env"
+    ]
   },
   "keywords": [],
   "author": "Eric R. Shinn <eshinn@autocustoms.com>",
@@ -15,7 +17,12 @@
   "devDependencies": {
     "babel-preset-env": "^1.6.0",
     "babel-register": "^6.26.0",
+    "browser-sync": "^2.18.13",
     "chai": "^4.1.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-stylus": "^2.6.0",
     "mocha": "^3.5.0"
   }
 }
