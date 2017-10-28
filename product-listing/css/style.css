@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+#navIcon {
+  flex-basis: 15%;
+}
+#logo {
+  text-indent: -9999px;
+  background-image: url("../images/realtruck_horizontal.svg");
+  background-repeat: no-repeat;
+  flex-basis: 85%;
+}
+header img {
+  width: 100%;
+}
+nav {
+  display: flex;
+}
+main {
+  margin: 12px;
+}
+main h1 {
+  line-height: 0.5;
+}
+#sortContainer {
+  display: flex;
+  justify-content: space-between;
+}
+#activeSort p {
+  text-align: right;
+  margin-right: 5px;
+  margin-top: 0;
+}
+#activeSort:hover {
+  background-color: #c7c5c5;
+  position: absolute;
+  bottom: 132px;
+  right: 0;
+  width: 68%;
+}
