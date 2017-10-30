@@ -10,14 +10,39 @@ html
 			nav
 				div#navIcon
 					span yolo 
-				h1#logo Real Truck
+				h1.logo Real Truck
 			img(src="/images/truck.png" alt="Ford Truck")
 		main
 			section#heading
-				p Truck Accessories >
-				h1 WHEELS & RIMS
+				h1 Truck Accessories >
+				h2 WHEELS & RIMS
 			section#sortContainer
 				p 1 - 30 of 422
+				p#sortbtn Sort >
 				div#activeSort
-					p Sort >
+					label(for='sortNum') Show
+					select(name='sortNum')
+						option(value='30', selected= true) 30
+						option(value='20') 20
+						option(value='10') 10
+					label(for="sortProduct") Sort By:
+					select(name="sortProduct")
+						option(value="Recommended") Recommended
+			section#productContainer
+				each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+					article.products
+						img(src="/images/wheel.png" alt="Triton Wheels")  
+						div.productInfo
+							h1 Fuel Black 
+							h2 Triton Wheels
+							p From:
+							span $160.00
+		footer
+			h1.logo Real Truck
+			p &copy Copyright 2017 RealTruck.com
+			p &reg. All rights reserved.
+
+
+ 
+
 

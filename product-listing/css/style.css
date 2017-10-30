@@ -2,15 +2,6 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
 }
-#navIcon {
-  flex-basis: 15%;
-}
-#logo {
-  text-indent: -9999px;
-  background-image: url("../images/realtruck_horizontal.svg");
-  background-repeat: no-repeat;
-  flex-basis: 85%;
-}
 header img {
   width: 100%;
 }
@@ -22,20 +13,71 @@ main {
 }
 main h1 {
   line-height: 0.5;
+  margin: 0px;
+  font-size: 16px;
+  font-weight: normal;
+}
+footer {
+  background-color: #3d3d3d;
+  padding: 1px;
+  text-align: center;
+  color: #fff;
+}
+footer p {
+  line-height: 0.4;
+}
+footer h1 {
+  padding: 1px;
+}
+.logo {
+  text-indent: -9999px;
+  background-image: url("../images/realtruck_horizontal.svg");
+  background-repeat: no-repeat;
+  flex-basis: 85%;
+}
+.products {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid #d6d6d6;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+}
+.products img {
+  width: 49%;
+}
+.products p {
+  margin-bottom: 0px;
+}
+.productInfo span {
+  font-weight: bold;
+}
+#navIcon {
+  flex-basis: 15%;
+}
+#productContainer h1,
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0px;
 }
 #sortContainer {
   display: flex;
   justify-content: space-between;
+}
+#sortbtn:hover + #activeSort {
+  display: block;
 }
 #activeSort p {
   text-align: right;
   margin-right: 5px;
   margin-top: 0;
 }
-#activeSort:hover {
+#activeSort {
+  display: none;
   background-color: #c7c5c5;
   position: absolute;
-  bottom: 132px;
+  bottom: 115px;
   right: 0;
-  width: 68%;
+  width: 76%;
+  padding: 10px;
 }
