@@ -1,18 +1,26 @@
 body
 	margin 0
 	font-family: 'Roboto', sans-serif
+	line-height 1.35
+	
+a
+	text-decoration none
+	color black
+	
+ul
+	list-style none
 	
 header img
 	width: 100%
 
 nav
 	display flex
-
-main 
-	margin 12px
+	margin auto
+	width 90%
+	text-align center
 	
 main h1
-	line-height 0.5
+	line-height 1
 	margin 0px
 	font-size 16px
 	font-weight normal
@@ -22,14 +30,17 @@ footer
 	padding 1px
 	text-align center
 	color #ffffff
+	border-top 12px solid #eeb81a
 
 footer p 
-	line-height 0.4
-
-footer h1
-	padding 1px
+	line-height 1.4
+	padding 2px
+	color #d3d3d3
 	
-.logo
+	& span
+		color #ffffff
+	
+#logo
 	text-indent -9999px
 	background-image url('../images/realtruck_horizontal.svg')
 	background-repeat no-repeat
@@ -50,15 +61,28 @@ footer h1
 
 .productInfo span
 	font-weight bold
+	
 // &[name="sortNum"]
 // 	background-color green
 
 // &[name="sortProduct"]
 // 	background-color green
 
+#heading
+	margin 12px
+	
+	& h1
+		color #666666
+	
 #navIcon
 	flex-basis: 15%
 
+#productContainer
+	display flex
+	flex-direction column
+	flex-wrap wrap
+	margin 12px
+	
 #productContainer h1, h2
 	font-size 24px
 	font-weight 700
@@ -67,7 +91,9 @@ footer h1
 #sortContainer
 	display flex
 	justify-content space-between
-
+	
+	& p
+		margin 12px	
 #sortbtn:hover + #activeSort
 	display block	
 
@@ -84,3 +110,81 @@ footer h1
 	right 0
 	width 76%
 	padding 10px
+
+#pag ul
+	display flex
+	
+	& li
+		padding 10px
+		// border: 1px solid #ddd;
+
+.pages
+	padding-left 1px
+/// svg
+.leftarrow
+	position: relative;
+	top: 7px;
+	width 25px
+	stroke black
+	fill none
+	transform rotate(180deg)
+	padding-left 5px
+
+.rightarrow
+	position relative
+	top 7px
+	width 25px
+	stroke black
+	fill none
+	padding-left 5px
+
+#Layer_1
+	padding 20px 0px 0px 0px
+	width 60%
+	
+.st0
+	fill #e5e5e5
+
+.st1
+	fill #edb81e
+	
+// Media Queries
+fullWidth = 1236px
+gutter = 12px
+col-4 = fullWidth/4 - gutter * 3
+
+tablet-width = 768px
+tablet-gutter = 12px
+col-tablet = tablet-width/2 - tablet-gutter * 3
+
+@media (min-width: 768px) and (max-width: 1024px)
+
+	#productContainer
+		flex-direction row
+		width tablet-width
+		margin 0px auto
+		
+	.products
+		margin-left tablet-gutter
+		width col-tablet
+		
+	#pag
+		width 39%
+	
+	#sortContainer
+		background-color #e5e5e5
+		width 100%
+		margin-bottom 12px
+
+@media (min-width: 1024px) and (max-width: 1236px)
+	#productContainer
+		flex-direction row
+		
+		margin 0px auto
+		
+	.products
+		margin-left gutter
+		width col-4
+		
+	#pag
+		width 25%
