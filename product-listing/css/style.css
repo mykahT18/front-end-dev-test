@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   line-height: 1.35;
+  overflow-x: hidden;
 }
 a {
   text-decoration: none;
@@ -15,9 +16,18 @@ header img {
 }
 nav {
   display: flex;
-  margin: auto;
-  width: 90%;
+  flex-basis: 90%;
   text-align: center;
+}
+.wrapper {
+  min-width: 100%;
+  min-height: 100%;
+  background-color: #fff;
+  position: relative;
+  top: 0;
+  bottom: 100%;
+  left: 0;
+  z-index: 1;
 }
 main h1 {
   line-height: 1;
@@ -37,14 +47,11 @@ footer p {
   padding: 2px;
   color: #d3d3d3;
 }
-footer p span {
+footer span {
   color: #fff;
 }
-#logo {
-  text-indent: -9999px;
-  background-image: url("../images/realtruck_horizontal.svg");
-  background-repeat: no-repeat;
-  flex-basis: 85%;
+label[for="sortNum"] {
+  margin-right: 12px;
 }
 .products {
   display: flex;
@@ -62,6 +69,53 @@ footer p span {
 .productInfo span {
   font-weight: bold;
 }
+.nav-trigger {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+.nav-trigger:checked + label {
+  left: 215px;
+}
+.nav-trigger:checked ~ .wrapper {
+  left: 200px;
+  box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+}
+.nav-trigger + label,
+.wrapper {
+  transition: left 0.2s;
+}
+label[for="nav-trigger"] {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-image: url("../images/iconsprite.png");
+  background-position: 216px -246px;
+}
+.mainNav {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #3d3d3d;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+}
+.mainNav a {
+  color: #fff;
+}
+#logo {
+  text-indent: -9999px;
+  background-image: url("../images/realtruck_horizontal.svg");
+  background-repeat: no-repeat;
+  flex-basis: 60%;
+  margin-bottom: 0px;
+}
 #heading {
   margin: 12px;
 }
@@ -69,7 +123,7 @@ footer p span {
   color: #666;
 }
 #navIcon {
-  flex-basis: 15%;
+  flex-basis: 27%;
 }
 #productContainer {
   display: flex;
@@ -83,35 +137,44 @@ h2 {
   font-weight: 700;
   margin: 0px;
 }
-#sortContainer {
-  display: flex;
-  justify-content: space-between;
-}
-#sortContainer p {
-  margin: 12px;
-}
-#sortbtn:hover + #activeSort {
-  display: block;
-}
-#activeSort p {
-  text-align: right;
-  margin-right: 5px;
-  margin-top: 0;
-}
 #activeSort {
-  display: none;
-  background-color: #c7c5c5;
+  display: inline-block;
+  position: relative;
+  padding: 0px;
+  left: 263px;
+  outline: none;
+  bottom: 44px;
+}
+#activeSort:before {
+  content: 'Sort';
+}
+#activeSort:focus {
+  pointer-events: none;
+}
+#activeSort:focus #selectContent {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+#selectContent {
   position: absolute;
-  bottom: 115px;
-  right: 0;
-  width: 76%;
+  background-color: #efeeee;
+  display: flex;
+  top: 0px;
+  right: -27px;
   padding: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 1s;
 }
 #pag ul {
   display: flex;
 }
 #pag ul li {
   padding: 10px;
+}
+#sortContainer p {
+  padding-left: 10px;
 }
 .pages {
   padding-left: 1px;
@@ -147,6 +210,7 @@ h2 {
   #productContainer {
     flex-direction: row;
     width: 768px;
+    bottom: 90px;
     margin: 0px auto;
   }
   .products {
@@ -160,11 +224,61 @@ h2 {
     background-color: #e5e5e5;
     width: 100%;
     margin-bottom: 12px;
+    position: relative;
+    bottom: 24px;
+  }
+  #activeSort {
+    display: block;
+    visibility: visible;
+    left: 710px;
+    top: -20px;
+  }
+  #selectContent {
+    visibility: visible;
+    display: flex;
+  }
+  #heading {
+    padding: 12px;
+    opacity: 0.9;
+    background-color: #eeb81a;
+    position: absolute;
+    left: 0px;
+    width: 97%;
+    bottom: 90px;
+    margin: 0px;
+  }
+  nav {
+    flex-basis: 49%;
+  }
+  #navIcon {
+    flex-basis: 31%;
+  }
+  #logo {
+    margin-bottom: 12px;
+    flex-basis: 69%;
+  }
+  #sortContainer p {
+    padding-left: 10px;
+    margin-bottom: 0px;
+    padding-top: 12px;
+  }
+  #pag {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  #pag ul {
+    display: flex;
+    padding: 0px;
+  }
+  li {
+    padding: 10px;
   }
 }
-@media (min-width: 1024px) and (max-width: 1236px) {
+@media (max-width: 1236px) and (min-width: 1000px) {
   #productContainer {
     flex-direction: row;
+    width: 100%;
     margin: 0px auto;
   }
   .products {

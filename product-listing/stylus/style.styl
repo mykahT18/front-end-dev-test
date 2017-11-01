@@ -1,7 +1,13 @@
+primary-color =  #3d3d3d
+secondary-color = #eeb81a
+main-font = 'Roboto', sans-serif
+
+
 body
 	margin 0
-	font-family: 'Roboto', sans-serif
+	font-family: main-font
 	line-height 1.35
+	overflow-x hidden
 	
 a
 	text-decoration none
@@ -12,12 +18,21 @@ ul
 	
 header img
 	width: 100%
-
+	
 nav
 	display flex
-	margin auto
-	width 90%
+	flex-basis 90%
 	text-align center
+
+.wrapper
+	min-width 100%
+	min-height 100%
+	background-color #fff
+	position relative
+	top 0
+	bottom 100%
+	left 0
+	z-index 1
 	
 main h1
 	line-height 1
@@ -26,26 +41,23 @@ main h1
 	font-weight normal
 
 footer
-	background-color #3d3d3d
+	background-color primary-color
 	padding 1px
 	text-align center
 	color #ffffff
-	border-top 12px solid #eeb81a
-
-footer p 
-	line-height 1.4
-	padding 2px
-	color #d3d3d3
+	border-top 12px solid secondary-color
 	
-	& span
+	p
+		line-height 1.4
+		padding 2px
+		color #d3d3d3
+	span
 		color #ffffff
-	
-#logo
-	text-indent -9999px
-	background-image url('../images/realtruck_horizontal.svg')
-	background-repeat no-repeat
-	flex-basis: 85%
 
+		
+label[for="sortNum"]
+	margin-right 12px
+	
 .products
 	display flex
 	align-items flex-start
@@ -62,12 +74,52 @@ footer p
 .productInfo span
 	font-weight bold
 	
-// &[name="sortNum"]
-// 	background-color green
+.nav-trigger
+	position absolute
+	clip rect(0, 0, 0, 0)
 
-// &[name="sortProduct"]
-// 	background-color green
+.nav-trigger:checked + label 
+	left 215px
 
+.nav-trigger:checked ~ .wrapper 
+	left 200px
+	box-shadow 0 0 5px 5px rgba(0,0,0,0.5)
+
+.nav-trigger + label, .wrapper 
+	transition left 0.2s
+
+label[for="nav-trigger"] 
+	position fixed
+	top 15px
+	left 15px
+	z-index 2
+	width 40px
+	height 40px
+	cursor pointer
+	background-image url("../images/iconsprite.png")
+	background-position 216px -246px
+		
+.mainNav
+	width 100%
+	height 100%
+	position: fixed
+	background-color primary-color
+	top 0
+	right 0
+	bottom 0
+	left 0
+	z-index 0
+	
+	a 
+		color white
+		
+#logo
+	text-indent -9999px
+	background-image url('../images/realtruck_horizontal.svg')
+	background-repeat no-repeat
+	flex-basis 60%
+	margin-bottom 0px
+	
 #heading
 	margin 12px
 	
@@ -75,7 +127,7 @@ footer p
 		color #666666
 	
 #navIcon
-	flex-basis: 15%
+	flex-basis: 27%
 
 #productContainer
 	display flex
@@ -87,37 +139,47 @@ footer p
 	font-size 24px
 	font-weight 700
 	margin 0px
-
-#sortContainer
-	display flex
-	justify-content space-between
-	
-	& p
-		margin 12px	
-#sortbtn:hover + #activeSort
-	display block	
-
-#activeSort p
-	text-align right
-	margin-right: 5px;
-	margin-top: 0;
 	
 #activeSort
-	display none
-	background-color #c7c5c5
-	position absolute
-	bottom 115px
-	right 0
-	width 76%
-	padding 10px
+	display inline-block
+	position relative
+	padding 0px
+	left 263px
+	outline none
+	bottom 44px
 
+#activeSort:before
+	content 'Sort'
+
+#activeSort:focus
+	pointer-events none
+	
+#activeSort:focus #selectContent
+	opacity 1
+	visibility visible
+	pointer-events auto
+		
+#selectContent
+	position absolute
+	background-color #efeeee
+	display flex
+	top 0px
+	right -27px
+	padding 10px
+	
+	opacity 0
+	visibility hidden
+	transition visibility 1s
+	
 #pag ul
 	display flex
 	
 	& li
 		padding 10px
 		// border: 1px solid #ddd;
-
+#sortContainer p
+	padding-left 10px
+	
 .pages
 	padding-left 1px
 /// svg
@@ -162,6 +224,8 @@ col-tablet = tablet-width/2 - tablet-gutter * 3
 	#productContainer
 		flex-direction row
 		width tablet-width
+		// position relative
+		bottom 90px
 		margin 0px auto
 		
 	.products
@@ -175,11 +239,62 @@ col-tablet = tablet-width/2 - tablet-gutter * 3
 		background-color #e5e5e5
 		width 100%
 		margin-bottom 12px
+		position relative
+		bottom 24px
+	
+	#activeSort
+		display block
+		visibility visible
+		left 710px
+		top -20px
 
-@media (min-width: 1024px) and (max-width: 1236px)
+	#selectContent
+		visibility visible
+		display flex
+	
+	#heading
+		padding 12px
+		opacity 0.9
+		background-color secondary-color
+		position absolute
+		left 0px
+		width 97%
+		bottom 90px
+		margin 0px
+		
+	nav
+		flex-basis 49%
+		
+	#navIcon
+		flex-basis 31%
+		
+	#logo
+		margin-bottom 12px
+		flex-basis 69% 
+	
+	#sortContainer p
+		padding-left 10px
+		margin-bottom 0px
+		padding-top 12px
+	
+	#pag
+		display flex
+		justify-content center
+		width 100%
+		
+	#pag ul
+		display flex
+		padding 0px
+	
+	& li
+		padding 10px
+		// border: 1px solid #ddd;
+		
+
+@media (max-width: fullWidth) and (min-width: 1000px)
 	#productContainer
 		flex-direction row
-		
+		width 100%
 		margin 0px auto
 		
 	.products
