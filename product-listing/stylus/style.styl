@@ -47,6 +47,15 @@ footer
 		
 label[for="sortNum"]
 	margin-right 12px
+
+.banner
+	background-image url('../images/truck.png')
+	background-size cover
+	background-repeat no-repeat
+	width 100%
+	height 216px
+
+	
 	
 .products
 	display flex
@@ -153,7 +162,7 @@ label[for="nav-trigger"]
 	
 #activeSort
 	display inline-block
-	position relative
+	// position relative
 	padding 0px
 	left 263px
 	outline none
@@ -231,7 +240,8 @@ tablet-width = 768px
 tablet-gutter = 12px
 col-tablet = tablet-width/2 - tablet-gutter * 3
 
-@media (min-width: 768px)
+		
+@media (min-width: 767px)
 
 	#productContainer
 		flex-direction row
@@ -239,6 +249,9 @@ col-tablet = tablet-width/2 - tablet-gutter * 3
 		// position relative
 		bottom 90px
 		margin 0px auto
+	
+	.banner
+		height 465px
 		
 	.products
 		margin-left tablet-gutter
@@ -272,7 +285,7 @@ col-tablet = tablet-width/2 - tablet-gutter * 3
 		position absolute
 		left 0px
 		width 97%
-		bottom 23px
+		bottom 254px
 		margin 0px
 		
 	nav
@@ -286,9 +299,7 @@ col-tablet = tablet-width/2 - tablet-gutter * 3
 		flex-basis 69% 
 	
 	#sortContainer p
-		padding-left 10px
-		margin-bottom 0px
-		padding-top 12px
+		padding 10px 0px 10px 12px
 	
 	#pag
 		display none
@@ -322,12 +333,16 @@ col-tablet = tablet-width/2 - tablet-gutter * 3
 			order 1
 			padding-left 10px
 		
-@media (min-width: 1000px) and (max-width: fullWidth)
+@media (min-width: fullWidth)
+
 	#productContainer
 		flex-direction row
 		width 100%
 		margin 0px auto
-		
+	
+	.banner
+		height 527px
+
 	.products
 		margin-left gutter
 		width col-4
@@ -336,18 +351,40 @@ col-tablet = tablet-width/2 - tablet-gutter * 3
 		display none	
 
 	.mainNav
-		width: 20%
-		left -200px
+		display none
+	
+	#pages
+		justify-content center
+
+	#pages ul
+		display flex
+		align-items self-end
 		
-	// #pages ul
-	// 	display flex
-	// 	align-items self-end
-		
-	// 	li
-	// 		padding 8px
-	// 		border: 1px solid #dd
-	// 		background-color #FAFAFA
+		li
+			padding 8px
+			border: 1px solid #dd
+			background-color #FAFAFA
 			
 	.rightarrow, .leftarrow
 		top 0
 		width 15px
+	
+	#sortContainer p
+		margin-left 12px
+
+	#heading
+		position absolute
+		left 12px
+		padding 20px 0px 20px 12px
+		width 30%
+		bottom 468px
+		margin-left 12px
+		color #ffffff
+		
+	footer
+		padding 12px
+		#Layer_1
+			margin 0px 12px 0px 0px
+			width 15%
+		p
+			margin 0px 12px 0px 0px

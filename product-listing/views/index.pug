@@ -41,23 +41,25 @@ html
 				nav
 					div#navIcon
 					h1#logo Real Truck
-				img(src="/images/truck.png" alt="Ford Truck")
+				div.banner
+					//- img(src="/images/truck.png" alt="Ford Truck")
+					
 			main
 				section#heading
 					h1 Truck Accessories >
 					h2 WHEELS & RIMS
 				section#sortContainer
 					p 1 - 30 of 422
-					div#activeSort(tabindex="0")
-						div#selectContent
-							label(for='sortNum') Show
-								select(name='sortNum')
-									option(value='30', selected= true) 30
-									option(value='20') 20
-									option(value='10') 10
-							label(for="sortProduct") Sort By:
-								select(name="sortProduct")
-									option(value="Recommended") Recommended
+					//- div#activeSort(tabindex="0")
+					//- 	div#selectContent
+					//- 		label(for='sortNum') Show
+					//- 			select(name='sortNum')
+					//- 				option(value='30', selected= true) 30
+					//- 				option(value='20') 20
+					//- 				option(value='10') 10
+					//- 		label(for="sortProduct") Sort By:
+					//- 			select(name="sortProduct")
+					//- 				option(value="Recommended") Recommended
 				section#productContainer
 					- var n = 0
 					while n <= 11
