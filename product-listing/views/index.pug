@@ -7,8 +7,16 @@ html
 		link(href='/css/normalize.css', rel='stylesheet')
 		link(href='/css/style.css', rel='stylesheet')
 	body
+
+		input#nav-trigger.nav-trigger(type='checkbox')
+		label(for='nav-trigger')
+		//- div.icon
+		//- div.icon
+		//- div.icon
+
 		div.mainNav
-			ul
+			input.search(type="text" placeholder="Search") 
+			ul.navigation
 				li.nav-item 
 					a(href="#") Exterior Accessories
 				li.nav-item 
@@ -27,12 +35,11 @@ html
 					a(href="#") Show by Brand
 				li.nav-item 
 					a(href="#") Contact Us
+
 		div.wrapper
 			header
 				nav
 					div#navIcon
-						input#nav-trigger.nav-trigger(type='checkbox')
-						label(for='nav-trigger')
 					h1#logo Real Truck
 				img(src="/images/truck.png" alt="Ford Truck")
 			main
@@ -72,6 +79,20 @@ html
 							a.pages(href="#") Next
 							svg.rightarrow(viewbox='0 0 20 20')
 								path(d='M0 0 L10 10 L0 20')
+				nav#pages
+					- var l = 0
+					ul
+						li
+							svg.leftarrow(viewbox='0 0 20 20')
+								path(d='M0 0 L10 10 L0 20')
+						while l <= 9
+							li
+								a(href="#")= l++
+						li
+							svg.rightarrow(viewbox='0 0 20 20')
+								path(d='M0 0 L10 10 L0 20')
+						
+
 			footer
 				//- h1.logo Real Truck
 				svg#Layer_1(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 720 109', style='enable-background:new 0 0 720 109;', xml:space='preserve')

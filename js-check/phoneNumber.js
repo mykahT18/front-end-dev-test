@@ -8,7 +8,8 @@
 // remove dots as in "321.321.4321"
 
 const phoneNumber = (pNum) => {
-
+	let number = pNum.replace(/[^+\d]+/g, "");
+	return number
 }
 
 module.exports = phoneNumber

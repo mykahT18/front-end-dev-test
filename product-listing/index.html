@@ -8,8 +8,11 @@
     <link href="/css/style.css" rel="stylesheet">
   </head>
   <body>
+    <input class="nav-trigger" id="nav-trigger" type="checkbox">
+    <label for="nav-trigger"></label>
     <div class="mainNav">
-      <ul>
+      <input class="search" type="text" placeholder="Search">
+      <ul class="navigation">
         <li class="nav-item"> <a href="#">Exterior Accessories</a></li>
         <li class="nav-item"> <a href="#">Interior Accessories</a></li>
         <li class="nav-item"> <a href="#">Lighting</a></li>
@@ -24,10 +27,7 @@
     <div class="wrapper">
       <header>
         <nav>
-          <div id="navIcon">
-            <input class="nav-trigger" id="nav-trigger" type="checkbox">
-            <label for="nav-trigger"></label>
-          </div>
+          <div id="navIcon"></div>
           <h1 id="logo">Real Truck</h1>
         </nav><img src="/images/truck.png" alt="Ford Truck">
       </header>
@@ -149,6 +149,30 @@
               </svg><a class="pages" href="#">Previous</a>
             </li>
             <li><a class="pages" href="#">Next</a>
+              <svg class="rightarrow" viewbox="0 0 20 20">
+                <path d="M0 0 L10 10 L0 20"></path>
+              </svg>
+            </li>
+          </ul>
+        </nav>
+        <nav id="pages">
+          <ul>
+            <li>
+              <svg class="leftarrow" viewbox="0 0 20 20">
+                <path d="M0 0 L10 10 L0 20"></path>
+              </svg>
+            </li>
+            <li><a href="#">0</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+            <li>
               <svg class="rightarrow" viewbox="0 0 20 20">
                 <path d="M0 0 L10 10 L0 20"></path>
               </svg>
