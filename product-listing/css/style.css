@@ -66,14 +66,8 @@ label[for="sortNum"] {
 .productInfo span {
   font-weight: bold;
 }
-.wrapper {
-  min-width: 100%;
-  min-height: 100%;
-  background-color: #fff;
-  z-index: 1;
-}
 .mainNav {
-  width: 50%;
+  width: 62%;
   height: 100%;
   position: fixed;
   background-color: rgba(61,61,61,0.98);
@@ -87,11 +81,27 @@ label[for="sortNum"] {
   color: #fff;
 }
 .search {
-  width: 100%;
-  margin-top: 12px;
+  width: 93%;
+  padding: 7px;
+}
+.search::placeholder {
+  opacity: 0.5;
 }
 .navigation {
-  margin-top: 12px;
+  position: absolute;
+  top: 70px;
+  padding-left: 0px;
+  margin: 0px;
+}
+.navigation li {
+  padding: 20px 12px;
+  width: 100%;
+  border-bottom: 1px solid rgba(239,238,238,0.25);
+}
+.navigation li:nth-child(1) {
+  padding: 0px 10px 0px 0px;
+  width: 100%;
+  border-bottom: none;
 }
 .nav-trigger {
   position: absolute;
@@ -218,7 +228,7 @@ h2 {
 .st1 {
   fill: #edb81e;
 }
-@media (min-width: 767px) {
+@media (min-width: 767px) and (max-width: 1024px) {
   #productContainer {
     flex-direction: row;
     width: 768px;
@@ -260,7 +270,7 @@ h2 {
     position: absolute;
     left: 0px;
     width: 97%;
-    bottom: 254px;
+    bottom: 283px;
     margin: 0px;
   }
   nav {
@@ -312,11 +322,21 @@ h2 {
     padding-left: 10px;
   }
 }
-@media (min-width: 1236px) {
+@media (min-width: 1024px) {
   #productContainer {
     flex-direction: row;
     width: 100%;
     margin: 0px auto;
+  }
+  label[for="nav-trigger"] {
+    display: none;
+  }
+  #navIcon {
+    display: none;
+  }
+  #logo {
+    margin-left: 60px;
+    margin-bottom: 10px;
   }
   .banner {
     height: 527px;
@@ -332,11 +352,13 @@ h2 {
     display: none;
   }
   #pages {
-    justify-content: center;
+    display: flex;
+    justify-content: flex-end;
   }
   #pages ul {
     display: flex;
     align-items: self-end;
+    padding-right: 12px;
   }
   #pages ul li {
     padding: 8px;
@@ -348,26 +370,31 @@ h2 {
     top: 0;
     width: 15px;
   }
-  #sortContainer p {
-    margin-left: 12px;
+  #sortContainer {
+    background-color: #e5e5e5;
   }
   #heading {
     position: absolute;
     left: 12px;
     padding: 20px 0px 20px 12px;
+    background-color: #eeb81a;
     width: 30%;
-    bottom: 468px;
+    bottom: 250px;
     margin-left: 12px;
     color: #fff;
   }
   footer {
-    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   footer #Layer_1 {
-    margin: 0px 12px 0px 0px;
+    order: 2;
+    padding: 0px 10px 0px 0px;
     width: 15%;
   }
   footer p {
-    margin: 0px 12px 0px 0px;
+    order: 1;
+    padding-left: 10px;
   }
 }
