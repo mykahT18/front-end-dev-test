@@ -5,7 +5,8 @@ body
 	margin 0
 	font-family: main-font
 	line-height 1.35
-	overflow-x hidden	
+	overflow-x hidden
+	box-sizing border-box
 a
 	text-decoration none
 	color black
@@ -20,6 +21,7 @@ main h1
 	margin 0px
 	font-size 16px
 	font-weight normal
+	
 footer
 	background-color primary-color
 	padding 1px
@@ -33,6 +35,18 @@ footer
 	span
 		color #ffffff
 		
+label[for="nav-trigger"] 
+	position absolute
+	top 15px
+	left 15px
+	z-index 10
+	width 40px
+	height 40px
+	cursor pointer
+	background-image url("../images/iconsprite.png")
+	background-position 217px -248px
+	
+// Start Classes //	
 .banner
 	background-image url('../images/truck.png')
 	background-size cover
@@ -52,10 +66,7 @@ footer
 	width 49%
 	
 .products p
-	margin-bottom 0px
-
-.productInfo span
-	font-weight bold
+	margin 0px
 
 .mainNav
 	width 67%
@@ -69,8 +80,6 @@ footer
 	margin 0px	
 	a 
 		color white
-#largeNav
-	display none
 
 .desktopNav
 	display flex
@@ -80,6 +89,7 @@ footer
 .search
 	width 93%
 	padding 7px
+	
 	&::placeholder
 			opacity 0.5
 				
@@ -94,7 +104,8 @@ footer
 		padding 20px 12px
 		width 95%
 		border-bottom 1px solid alpha(#efeeee , 0.25) 
-
+		
+// Selecting the first child of the ul (the input tag)
 .navigation li:nth-child(1)
 	padding 0px 10px 0px 0px
 	width 100%
@@ -115,60 +126,18 @@ footer
 .nav-trigger:checked ~ label[for="nav-trigger"]
 	position fixed	 
 
-label[for="nav-trigger"] 
-	position absolute
-	top 15px
-	left 15px
-	z-index 10
-	width 40px
-	height 40px
-	cursor pointer
-	background-image url("../images/iconsprite.png")
-	background-position 216px -246px
-
-.icon
-	width 35px
-	height 5px
-	background-color gray
-	margin 6px 0
+.productInfo 
+	h2
+		font-size 20px
+		font-weight 700
+		margin 0px
 	
-#logo
-	text-indent -9999px
-	background-image url('../images/realtruck_horizontal.svg')
-	background-repeat no-repeat
-	flex-basis 60%
-	margin-bottom 0px
-	
-#heading
-	margin 12px
-
-	
-#navIcon
-	flex-basis: 27%
-
-#productContainer
-	display flex
-	flex-direction column
-	flex-wrap wrap
-	margin 12px
-	
-.productInfo h2
-	font-size 24px
-	font-weight 700
-	margin 0px
-
-#pag ul
-	display flex
-
-	& li
-		padding 10px
+	span
+		font-weight bold
 		
-#pages
+.searchDesktop
 	display none
-	
-#sortContainer p
-	padding-left 10px
-	
+		
 // SVG Section
 .leftarrow
 	position: relative;
@@ -197,6 +166,50 @@ label[for="nav-trigger"]
 	fill none
 	padding-left 5px
 	
+// End Classes //
+
+// Start Id's //
+// Turn Desktop display off
+#largeNav
+	display none	
+
+#logo
+	text-indent -9999px
+	background-image url('../images/realtruck_horizontal.svg')
+	background-repeat no-repeat
+	flex-basis 60%
+	margin-bottom 0px
+	
+#heading
+	margin 12px
+	
+	h2
+		margin 0px
+
+#navIcon
+	flex-basis: 27%
+
+#productContainer
+	display flex
+	flex-direction column
+	flex-wrap wrap
+	margin 0px 12px
+
+#pag ul
+	display flex
+	justify-content center
+	padding-left 0px
+	margin 0px 0px 12px 0px  
+
+	& li
+		padding 10px
+		
+#pages
+	display none
+	
+#sortContainer p
+	padding-left 12px
+	
 #Layer_1
 	padding 20px 0px 0px 0px
 	width 60%
@@ -206,17 +219,11 @@ label[for="nav-trigger"]
 
 .st1
 	fill #edb81e
-	
+// End SVG //
+
 // Media Queries
 // media query for medium screen		
-@media (min-width: 425px) and (max-width: 1024px)
-	
-	#productContainer
-		flex-direction row
-		// max-width tablet-width
-		width 100%
-		bottom 90px
-		margin 0px auto
+@media (min-width: 425px) and (max-width: 1236px)
 	
 	.banner
 		height 465px
@@ -228,6 +235,17 @@ label[for="nav-trigger"]
 	.mainNav
 		width: 35%
 		left -755px
+		
+	// SVG
+	.rightarrow, .leftarrow
+		top 0
+		width 15px
+		
+	#productContainer
+		flex-direction row
+		width 100%
+		bottom 90px
+		margin 0px auto
 	
 	#sortContainer
 		background-color #e5e5e5
@@ -246,13 +264,6 @@ label[for="nav-trigger"]
 		visibility visible
 		display flex
 	
-	#sortContainer
-		background-color #e5e5e5
-		width 100%
-		margin-bottom 12px
-		position relative
-		bottom 24px
-	
 	#heading
 		padding 12px
 		opacity 0.9
@@ -265,10 +276,7 @@ label[for="nav-trigger"]
 		
 		h2
 			margin 0px
-		
-	nav
-		flex-basis 49%
-		
+			
 	#navIcon
 		flex-basis 31%
 		
@@ -294,10 +302,6 @@ label[for="nav-trigger"]
 			border: 1px solid #dd
 			background-color #FAFAFA
 			
-	.rightarrow, .leftarrow
-		top 0
-		width 15px
-	
 	footer
 		display flex
 		justify-content space-between
@@ -312,8 +316,20 @@ label[for="nav-trigger"]
 			padding-left 10px
 		
 // media query for large sreen
-@media (min-width: 1025px)
+@media (min-width: 1236px)
 
+	
+	.searchDesktop
+		background-color alpha(#d3d3d3, .30)
+		border none
+		outline none
+		width 23%
+		margin 21px 0px 0px 0px
+	
+	&::placeholder
+		padding 5px
+		opacity 0.5
+		
 	.wrapper
 		max-width fullWidth
 		width 100%
@@ -344,7 +360,7 @@ label[for="nav-trigger"]
 		font-weight bolder
 		
 		a
-			color font-color
+			color #d3d3d3
 	.rightarrow, .leftarrow
 		top 0
 		width 15px
@@ -354,8 +370,8 @@ label[for="nav-trigger"]
 		background-color #222222
 		ul
 			display flex
-			padding 0px 35px 0px 35px
-			margin-bottom 10px
+			padding 10px 35px 10px 35px
+			margin-bottom 5px 0px 10px 0px 
 			justify-content space-around
 			
 	#productContainer
@@ -370,16 +386,20 @@ label[for="nav-trigger"]
 	#logo
 		margin-left 15px
 		margin-bottom 0px
+		flex-basis 54%
+		
 	#pag
 		display none	
 	
 	#pages
 		display flex
 		justify-content flex-end
+		// padding-right 60px
 
 	#pages ul
 		display flex
 		align-items self-end
+		padding-left 0px
 		
 		li
 			padding 8px
@@ -395,11 +415,11 @@ label[for="nav-trigger"]
 	#heading
 		position absolute
 		opacity 0.9
-		top 416px
+		bottom 30px
 		left 12px
 		padding 20px 0px 20px 12px
 		background-color secondary-color
-		width 28%
+		width 306px
 		margin-left 12px
 		
 		span
@@ -408,7 +428,6 @@ label[for="nav-trigger"]
 			
 		h2
 			color font-color
-			line-height 0 
 
 	label[for="nav-trigger"]
 		display none	

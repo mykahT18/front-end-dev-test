@@ -15,9 +15,9 @@
 
 const unique = (arr) => {
 	
-	// let result = compare(arr)
-	// console.log('😡',result)
-	// return result
+	let unique = [...new Set(arr)];
+	return unique
+	
 }
 
 module.exports = unique
@@ -26,20 +26,3 @@ module.exports = unique
 // fit. Just be sure to leave unique as an exported
 // method as you found it
 
-// const stringArray = (a) => {
-// 	let unique = [...new Set(a)];
-//   return unique
-// }
-// const numArray = (n) => {
-// 	let num = [...new Set(n)];
-//   return num
-// }
-
-// const compare = (el) => {
-// 	el.reduce((prev, next) => {
-// 		console.log('prev:',prev)
-// 		console.log('next:',next)
-// 		if (prev === next)
-// 			return next
-// 	})
-// }
