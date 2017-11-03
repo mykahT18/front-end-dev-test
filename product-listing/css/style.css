@@ -11,6 +11,9 @@ a {
 ul {
   list-style: none;
 }
+header {
+  position: relative;
+}
 main h1 {
   line-height: 1;
   margin: 0px;
@@ -38,6 +41,7 @@ footer span {
   background-repeat: no-repeat;
   width: 100%;
   height: 216px;
+  background-position: center;
 }
 .products {
   display: flex;
@@ -91,6 +95,7 @@ footer span {
   margin: 0px;
 }
 .navigation li {
+  position: relative;
   padding: 20px 12px;
   width: 95%;
   border-bottom: 1px solid rgba(239,238,238,0.25);
@@ -107,10 +112,14 @@ footer span {
 .nav-trigger:checked ~ .mainNav {
   left: 0px;
   box-shadow: 0 0 10px 0px rgba(61,61,61,0.98);
+  overflow: scroll;
 }
 .nav-trigger + label,
 .mainNav {
   transition: left 0.2s;
+}
+.nav-trigger:checked ~ label[for="nav-trigger"] {
+  position: fixed;
 }
 label[for="nav-trigger"] {
   position: absolute;
@@ -139,9 +148,6 @@ label[for="nav-trigger"] {
 #heading {
   margin: 12px;
 }
-#heading h1 {
-  color: #666;
-}
 #navIcon {
   flex-basis: 27%;
 }
@@ -151,40 +157,10 @@ label[for="nav-trigger"] {
   flex-wrap: wrap;
   margin: 12px;
 }
-#productContainer h1,
-h2 {
+.productInfo h2 {
   font-size: 24px;
   font-weight: 700;
   margin: 0px;
-}
-#activeSort {
-  display: inline-block;
-  padding: 0px;
-  left: 263px;
-  outline: none;
-  bottom: 44px;
-}
-#activeSort:before {
-  content: 'Sort';
-}
-#activeSort:focus {
-  pointer-events: none;
-}
-#activeSort:focus #selectContent {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-#selectContent {
-  position: absolute;
-  background-color: #efeeee;
-  display: flex;
-  top: 0px;
-  right: -27px;
-  padding: 10px;
-  opacity: 0;
-  visibility: hidden;
-  transition: visibility 1s;
 }
 #pag ul {
   display: flex;
@@ -217,8 +193,8 @@ h2 {
 }
 .menuarrow {
   position: absolute;
-  top: 7px;
-  right: 0px;
+  top: 18px;
+  right: 10px;
   width: 25px;
   stroke: #d3d3d3;
   stroke-width: 1.5px;
@@ -235,10 +211,10 @@ h2 {
 .st1 {
   fill: #edb81e;
 }
-@media (min-width: 767px) and (max-width: 1024px) {
+@media (min-width: 425px) and (max-width: 1024px) {
   #productContainer {
     flex-direction: row;
-    width: 768px;
+    width: 100%;
     bottom: 90px;
     margin: 0px auto;
   }
@@ -247,7 +223,7 @@ h2 {
   }
   .products {
     margin-left: 12px;
-    width: 348px;
+    width: 48%;
   }
   .mainNav {
     width: 35%;
@@ -270,14 +246,24 @@ h2 {
     visibility: visible;
     display: flex;
   }
+  #sortContainer {
+    background-color: #e5e5e5;
+    width: 100%;
+    margin-bottom: 12px;
+    position: relative;
+    bottom: 24px;
+  }
   #heading {
     padding: 12px;
     opacity: 0.9;
     background-color: #eeb81a;
     position: absolute;
     left: 0px;
-    width: 97%;
+    width: 100%;
     top: 463px;
+    margin: 0px;
+  }
+  #heading h2 {
     margin: 0px;
   }
   nav {
@@ -329,9 +315,43 @@ h2 {
     padding-left: 10px;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .wrapper {
-    margin: 0px 60px;
+    max-width: 1236px;
+    width: 100%;
+    margin: 0px auto;
+  }
+  .mainNav {
+    display: none;
+  }
+  .banner {
+    height: 467px;
+  }
+  .products {
+    margin-left: 12px;
+    width: 297px;
+    flex-direction: column;
+  }
+  .products img {
+    width: 80%;
+  }
+  .productInfo {
+    margin-top: 12px;
+  }
+  .productInfo h2 {
+    font-size: 24px;
+  }
+  .item {
+    padding: 6px;
+    font-weight: bolder;
+  }
+  .item a {
+    color: #fff;
+  }
+  .rightarrow,
+  .leftarrow {
+    top: 0;
+    width: 15px;
   }
   #largeNav {
     display: block;
@@ -339,42 +359,24 @@ h2 {
   }
   #largeNav ul {
     display: flex;
-    padding: 0px 50px 0px 50px;
+    padding: 0px 35px 0px 35px;
     margin-bottom: 10px;
     justify-content: space-around;
   }
-  .item {
-    padding: 6px;
-  }
-  .item a {
-    color: #fff;
-  }
   #productContainer {
     flex-direction: row;
+    max-width: 1236px;
     width: 100%;
     margin: 0px auto;
-  }
-  label[for="nav-trigger"] {
-    display: none;
   }
   #navIcon {
     display: none;
   }
   #logo {
-    margin-left: 25px;
+    margin-left: 15px;
     margin-bottom: 0px;
   }
-  .banner {
-    height: 467px;
-  }
-  .products {
-    margin-left: 12px;
-    width: 261px;
-  }
   #pag {
-    display: none;
-  }
-  .mainNav {
     display: none;
   }
   #pages {
@@ -390,23 +392,32 @@ h2 {
     border: 1px solid #ddd;
     background-color: #fafafa;
   }
-  .rightarrow,
-  .leftarrow {
-    top: 0;
-    width: 15px;
-  }
   #sortContainer {
     background-color: #e5e5e5;
+    padding: 1px;
+    position: relative;
+    bottom: 30px;
   }
   #heading {
     position: absolute;
-    top: 506px;
-    left: 62px;
+    opacity: 0.9;
+    top: 416px;
+    left: 12px;
     padding: 20px 0px 20px 12px;
     background-color: #eeb81a;
     width: 28%;
     margin-left: 12px;
+  }
+  #heading span {
+    color: #666;
+    font-size: 14px;
+  }
+  #heading h2 {
     color: #fff;
+    line-height: 0;
+  }
+  label[for="nav-trigger"] {
+    display: none;
   }
   footer {
     display: flex;
