@@ -7,13 +7,8 @@ html
 		link(href='/css/normalize.css', rel='stylesheet')
 		link(href='/css/style.css', rel='stylesheet')
 	body
-
 		input#nav-trigger.nav-trigger(type='checkbox')
 		label(for='nav-trigger')
-		//- div.icon
-		//- div.icon
-		//- div.icon
-
 		div.mainNav 
 			ul.navigation
 				li.nav-item 
@@ -54,31 +49,38 @@ html
 					a(href="#") Contact Us
 					svg.menuarrow(viewbox='0 0 20 20')
 						path(d='M0 0 L10 10 L0 20')
-
 		div.wrapper
 			header
-				nav
+				nav.desktopNav
 					div#navIcon
 					h1#logo Real Truck
+				nav#largeNav
+					ul
+						li.item 
+							a(href="#") Exterior Accessories
+						li.item 
+							a(href="#") Interior Accessories
+						li.item 
+							a(href="#") Lighting
+						li.item 
+							a(href="#") Performance
+						li.item 
+							a(href="#") Specialty
+						li.item 
+							a(href="#") Suspension
+						li.item 
+							a(href="#") Wheel & Tires
+						li.item 
+							a(href="#") Show by Brand
+						li.item 
+							a(href="#") Contact Us
 				div.banner
-					//- img(src="/images/truck.png" alt="Ford Truck")
-
 			main
 				section#heading
 					h1 Truck Accessories >
 					h2 WHEELS & RIMS
 				section#sortContainer
 					p Showing 1 - 30 of 422
-					//- div#activeSort(tabindex="0")
-					//- 	div#selectContent
-					//- 		label(for='sortNum') Show
-					//- 			select(name='sortNum')
-					//- 				option(value='30', selected= true) 30
-					//- 				option(value='20') 20
-					//- 				option(value='10') 10
-					//- 		label(for="sortProduct") Sort By:
-					//- 			select(name="sortProduct")
-					//- 				option(value="Recommended") Recommended
 				section#productContainer
 					- var n = 0
 					while n <= 11

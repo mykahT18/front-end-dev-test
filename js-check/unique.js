@@ -14,7 +14,10 @@
 // [{foo: 'bar'}, {foo: 'bar'}] => [{foo: 'bar'}]
 
 const unique = (arr) => {
-  // Add your code here.
+	
+	// let result = compare(arr)
+	// console.log('😡',result)
+	// return result
 }
 
 module.exports = unique
@@ -22,3 +25,21 @@ module.exports = unique
 // function. Feel free to make as many functions as you see
 // fit. Just be sure to leave unique as an exported
 // method as you found it
+
+// const stringArray = (a) => {
+// 	let unique = [...new Set(a)];
+//   return unique
+// }
+// const numArray = (n) => {
+// 	let num = [...new Set(n)];
+//   return num
+// }
+
+// const compare = (el) => {
+// 	el.reduce((prev, next) => {
+// 		console.log('prev:',prev)
+// 		console.log('next:',next)
+// 		if (prev === next)
+// 			return next
+// 	})
+// }
